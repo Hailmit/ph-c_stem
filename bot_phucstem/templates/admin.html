@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<body>
+    <h1>Admin Page - Quản lý dữ liệu JSON</h1>
+    <h2>Thêm sự kiện</h2>
+    <form action="/add_event" method="POST">
+        <label for="month">Tháng:</label>
+        <input type="number" id="month" name="month" min="1" max="12" required><br>
+        <label for="event">Sự kiện:</label>
+        <input type="text" id="event" name="event" required><br>
+        <button type="submit">Thêm sự kiện</button>
+    </form>
+
+    <h2>Xóa sự kiện</h2>
+    <form action="/delete_event" method="POST">
+        <label for="month">Tháng:</label>
+        <input type="number" id="month" name="month" min="1" max="12" required><br>
+        <button type="submit">Xóa sự kiện</button>
+    </form>
+
+    <h2>Các sự kiện hiện tại</h2>
+    <ul>
+        {% for key, value in events.items() %}
+            <li><strong>Tháng {{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
